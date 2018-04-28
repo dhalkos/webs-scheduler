@@ -5,6 +5,7 @@ package gr.dhalk.scheduler.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import gr.dhalk.scheduler.domain.enums.SchedulerStatusEnum;
 @Service("schedulerConfigurationService")
 public class SchedulerConfigurationService {
 	
+	@Autowired BeanFactory beans;
 
 	@Autowired
 	SchedulerConfigurationDAOInterface schedulerConfigurationDAO; 
@@ -37,15 +39,19 @@ public class SchedulerConfigurationService {
 	}
 	
 	public SchedulerConfigurationBean getScheduler(Long schedulerId) throws Exception {
-		return schedulerConfigurationDAO.getSchedulersById(schedulerId);
+		SchedulerConfigurationBean schedulerConfiguration =  schedulerConfigurationDAO.getSchedulersById(schedulerId);
+		schedulerConfiguration.setLastExectionTime(beans.getBean(schedulerConfiguration.getschedulerBeanName(), AbstractScheduler.class).getLastExectionTime());
+		return schedulerConfiguration;
 	}
 	
 	public SchedulerConfigurationBean saveScheduler(SchedulerConfigurationBean schedulerConfiguration) throws Exception {
 		
 		if(schedulerConfiguration!=null && schedulerConfiguration.getId()!=null) {
-			return schedulerConfigurationDAO.updateSchedulerConfiguration(schedulerConfiguration);
-		} else if(schedulerConfiguration!=null && schedulerConfiguration.getId()==null) {
-			return schedulerConfigurationDAO.insertSchedulerConfiguration(schedulerConfiguration);
+			
+			schedulerConfigurationDAO.updateSchedulerConfiguration(schedulerConfiguration);
+			beans.getBean(schedulerConfiguration.getschedulerBeanName(), AbstractScheduler.class).loadConfiguration();
+			return schedulerConfigurationDAO.getSchedulersById(schedulerConfiguration.getId());
+			
 		} else {
 			throw new Exception("SchedulerConfiguration is null");
 		}

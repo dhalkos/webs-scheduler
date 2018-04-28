@@ -17,7 +17,8 @@ public interface SchedulerConfigurationDAOInterface {
 	List<SchedulerConfigurationBean> getAllSchedulers() throws Exception;
 	List<SchedulerConfigurationBean> getSchedulersByStatus(SchedulerStatusEnum status) throws Exception;
 	SchedulerConfigurationBean getSchedulersById(Long schedulerConfigurationId) throws Exception;
+	SchedulerConfigurationBean getSchedulersByServiceName(String serviceBeanName) throws Exception;
 	SchedulerConfigurationBean updateSchedulerConfiguration(SchedulerConfigurationBean schedulerConfiguration) throws Exception;
-	SchedulerConfigurationBean insertSchedulerConfiguration(SchedulerConfigurationBean schedulerConfiguration) throws Exception;
+	//SchedulerConfigurationBean insertSchedulerConfiguration(SchedulerConfigurationBean schedulerConfiguration) throws Exception;
 	
 }

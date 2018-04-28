@@ -1,5 +1,7 @@
 package gr.dhalk.scheduler.domain.beans;
 
+import java.util.HashMap;
+
 import gr.dhalk.scheduler.domain.enums.SchedulerStatusEnum;
 
 /**
@@ -10,10 +12,12 @@ public class SchedulerConfigurationBean {
 
 	private Long id;
 	private String schedulerName;
+	private String schedulerBeanName;
 	private String schedulerDescription;
-	private Long timeIntervalInSeconds;
-	private String targetUrl;
+	private Long timeIntervalInMinutes;
+	private HashMap<String,String> schedulerParams;
 	private SchedulerStatusEnum status;
+	private String lastExectionTime;
 	
 	
 	public SchedulerConfigurationBean() {
@@ -29,31 +33,35 @@ public class SchedulerConfigurationBean {
 	 * @param targetUrl
 	 * @param status
 	 */
-	public SchedulerConfigurationBean(Long id, String schedulerName, String schedulerDescription,
-			Long timeIntervalInSeconds, String targetUrl, SchedulerStatusEnum status) {
+	public SchedulerConfigurationBean(Long id, String schedulerName, String schedulerBeanName, String schedulerDescription,
+			Long timeIntervalInMinutes, HashMap<String,String> schedulerParams, SchedulerStatusEnum status) {
 		super();
 		this.id = id;
 		this.schedulerName = schedulerName;
+		this.schedulerBeanName = schedulerBeanName;
 		this.schedulerDescription = schedulerDescription;
-		this.timeIntervalInSeconds = timeIntervalInSeconds;
-		this.targetUrl = targetUrl;
+		this.timeIntervalInMinutes = timeIntervalInMinutes;
+		this.schedulerParams = schedulerParams;
 		this.status = status;
 	}
 	
 	
 	/**
-	 * @return the timeIntervalInSeconds
+	 * @return the timeIntervalInMinutes
 	 */
-	public Long getTimeIntervalInSeconds() {
-		return timeIntervalInSeconds;
+	public Long getTimeIntervalInMinutes() {
+		return timeIntervalInMinutes;
 	}
+
+
 	/**
-	 * @param timeIntervalInSeconds the timeIntervalInSeconds to set
+	 * @param timeIntervalInMinutes the timeIntervalInMinutes to set
 	 */
-	public void setTimeIntervalInSeconds(Long timeIntervalInSeconds) {
-		this.timeIntervalInSeconds = timeIntervalInSeconds;
+	public void setTimeIntervalInMinutes(Long timeIntervalInMinutes) {
+		this.timeIntervalInMinutes = timeIntervalInMinutes;
 	}
-	
+
+
 	/**
 	 * @return the status
 	 */
@@ -114,21 +122,61 @@ public class SchedulerConfigurationBean {
 	public void setSchedulerDescription(String schedulerDescription) {
 		this.schedulerDescription = schedulerDescription;
 	}
-
+	
 
 	/**
-	 * @return the targetUrl
+	 * @return the schedulerParams
 	 */
-	public String getTargetUrl() {
-		return targetUrl;
+	public HashMap<String, String> getSchedulerParams() {
+		return schedulerParams;
 	}
 
 
 	/**
-	 * @param targetUrl the targetUrl to set
+	 * @param schedulerParams the schedulerParams to set
 	 */
-	public void setTargetUrl(String targetUrl) {
-		this.targetUrl = targetUrl;
+	public void setSchedulerParams(HashMap<String, String> schedulerParams) {
+		this.schedulerParams = schedulerParams;
+	}
+
+
+	/**
+	 * @return the schedulerBeanName
+	 */
+	public String getSchedulerBeanName() {
+		return schedulerBeanName;
+	}
+
+
+	/**
+	 * @return the schedulerBean
+	 */
+	public String getschedulerBeanName() {
+		return schedulerBeanName;
+	}
+
+
+	/**
+	 * @param schedulerBean the schedulerBean to set
+	 */
+	public void setSchedulerBeanName(String schedulerBeanName) {
+		this.schedulerBeanName = schedulerBeanName;
+	}
+
+
+	/**
+	 * @return the lastExectionTime
+	 */
+	public String getLastExectionTime() {
+		return lastExectionTime;
+	}
+
+
+	/**
+	 * @param lastExectionTime the lastExectionTime to set
+	 */
+	public void setLastExectionTime(String lastExectionTime) {
+		this.lastExectionTime = lastExectionTime;
 	}
 	
 	

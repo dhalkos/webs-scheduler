@@ -12,6 +12,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author Dimitris Chalkos 
@@ -20,6 +21,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @EnableAutoConfiguration
+@EnableScheduling
 @ComponentScan({"gr.dhalk.scheduler"})
 public class Application {
 

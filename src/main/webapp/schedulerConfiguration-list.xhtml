@@ -16,12 +16,12 @@
                         <h:outputText value="#{schedulerConfiguration.schedulerName}" />
                     </p:column>
                     <p:column>
-                        <f:facet name="header">URL</f:facet>
-                        <h:outputText value="#{schedulerConfiguration.targetUrl}" />                            
+                        <f:facet name="header">Status</f:facet>
+                        <h:outputText value="#{schedulerConfiguration.status}" />                            
                     </p:column>
                     <p:column>
                         <f:facet name="header">Frequency</f:facet>
-                        <h:outputText value="#{schedulerConfiguration.timeIntervalInSeconds}" />
+                        <h:outputText value="#{schedulerConfiguration.timeIntervalInMinutes}" />
                     </p:column>
                     <p:column>
                         

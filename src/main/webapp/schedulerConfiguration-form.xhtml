@@ -3,27 +3,30 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui">
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
         <h:form id="productForm">
             <p:panel header="Scheduler Configuration Details">
                 <h:panelGrid columns="2">
                 
-                    
-                    
+                    <p:outputLabel for="name1" value="Name: " />
+                    <p:inputText id="name1" value="#{schedulerConfigurationController.displayedSchedulerConfiguration.schedulerName}" />
+                                        
                     <p:outputLabel for="descr1" value="Description: " />
                     <p:inputText id="descr1" value="#{schedulerConfigurationController.displayedSchedulerConfiguration.schedulerDescription}" />
                     
-                    <p:outputLabel for="url1" value="URL: " />
-                    <p:inputText id="url1" value="#{schedulerConfigurationController.displayedSchedulerConfiguration.targetUrl}" />
-                    
                     <p:outputLabel for="frequency" value="Frequency: " />
-                    <p:inputNumber id="frequency" value="#{schedulerConfigurationController.displayedSchedulerConfiguration.timeIntervalInSeconds}" />
+                    <p:inputNumber id="frequency" value="#{schedulerConfigurationController.displayedSchedulerConfiguration.timeIntervalInMinutes}" />
                     
-                    <p:outputLabel for="name1" value="Name: " />
-                    <p:inputText id="name1" value="#{schedulerConfigurationController.displayedSchedulerConfiguration.schedulerName}" />
-                    
+					<p:outputLabel for="status" value="Status: " />
+                    <h:selectOneMenu id="status" value = "#{schedulerConfigurationController.displayedSchedulerConfiguration.status}"> 
+					    <f:selectItems value="#{referenceData.schedulerStatuses}" />
+					</h:selectOneMenu> 	
+					
+					                    
                     <h:commandButton value="Save" action="#{schedulerConfigurationController.save}" />
                     
                 </h:panelGrid>

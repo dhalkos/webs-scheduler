@@ -3,19 +3,16 @@
  */
 package gr.dhalk.scheduler.controller;
 
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
-
 import org.ocpsoft.rewrite.annotation.Join;
 import org.ocpsoft.rewrite.annotation.Parameter;
 import org.ocpsoft.rewrite.annotation.RequestAction;
 import org.ocpsoft.rewrite.el.ELBeanName;
 import org.ocpsoft.rewrite.faces.annotation.Deferred;
 import org.ocpsoft.rewrite.faces.annotation.IgnorePostback;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.RequestScope;
 
 import gr.dhalk.scheduler.domain.beans.SchedulerConfigurationBean;
 import gr.dhalk.scheduler.service.SchedulerConfigurationService;
@@ -31,7 +28,7 @@ import gr.dhalk.scheduler.service.SchedulerConfigurationService;
 @Join(path = "/schedulerConfiguration/{schedulerId}", to = "/schedulerConfiguration-form.jsf")
 public class SchedulerConfigurationController {
 		
-	
+	 
 	@Parameter
 	@Deferred
 	private Long schedulerId;
@@ -48,11 +45,7 @@ public class SchedulerConfigurationController {
 	
 		try {
 			
-			if(schedulerId==null || schedulerId.intValue()==0) {				
-				displayedSchedulerConfiguration = new SchedulerConfigurationBean();
-			} else {
-				displayedSchedulerConfiguration = schedulerConfigurationService.getScheduler(schedulerId);
-			}
+			displayedSchedulerConfiguration = schedulerConfigurationService.getScheduler(schedulerId);
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -80,6 +73,7 @@ public class SchedulerConfigurationController {
 		return "/schedulerConfiguration-list.xhtml?faces-redirect=true";
     }
 
+	
 	/**
 	 * @return the schedulerId
 	 */
