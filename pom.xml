@@ -56,6 +56,11 @@
 			<artifactId>rewrite-config-prettyfaces</artifactId>
 			<version>3.4.1.Final</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.ocpsoft.logging</groupId>
+		    <artifactId>logging-adapter-slf4j</artifactId>
+		    <version>1.0.5.Final</version>
+		</dependency>
 
 		<!-- Primefaces library for jsf components -->
 		<dependency>
