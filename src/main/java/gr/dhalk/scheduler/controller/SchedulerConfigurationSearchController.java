@@ -22,7 +22,7 @@ import gr.dhalk.scheduler.service.SchedulerConfigurationService;
 @Scope(value = "session")
 @Component(value = "schedulerConfigurationSearchController")
 @ELBeanName(value = "schedulerConfigurationSearchController")
-@Join(path = "/schedulerConfiguration", to = "/schedulerConfiguration-list.jsf")
+@Join(path = "/schedulerConfiguration", to = "/schedulerConfiguration-list.xhtml")
 public class SchedulerConfigurationSearchController {
 		
 	@Autowired

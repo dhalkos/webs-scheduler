@@ -61,11 +61,6 @@
 		    <artifactId>logging-adapter-slf4j</artifactId>
 		    <version>1.0.5.Final</version>
 		</dependency>
-		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>jstl</artifactId>
-		    <version>1.2</version>
-		</dependency>
 
 		<!-- Primefaces library for jsf components -->
 		<dependency>

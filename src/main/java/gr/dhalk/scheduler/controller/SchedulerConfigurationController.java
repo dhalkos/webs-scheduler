@@ -25,7 +25,7 @@ import gr.dhalk.scheduler.service.SchedulerConfigurationService;
 @Scope(value = "session")
 @Component(value = "schedulerConfigurationController")
 @ELBeanName(value = "schedulerConfigurationController")
-@Join(path = "/schedulerConfiguration/{schedulerId}", to = "/schedulerConfiguration-form.jsf")
+@Join(path = "/schedulerConfiguration/{schedulerId}", to = "/schedulerConfiguration-form.xhtml")
 public class SchedulerConfigurationController {
 		
 	 
