@@ -30,7 +30,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAutoConfiguration
 @EnableScheduling
 @ComponentScan({"gr.dhalk.scheduler"})
-public class Application extends SpringBootServletInitializer implements ServletContextInitializer  {
+public class Application {
 
 	public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -52,26 +52,5 @@ public class Application extends SpringBootServletInitializer implements Servlet
         return rwFilter;
     }
 
-	/* (non-Javadoc)
-	 * @see org.springframework.boot.web.servlet.ServletContextInitializer#onStartup(javax.servlet.ServletContext)
-	 */
-	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
 		
-		servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", "true");
-		servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
-		
-	}
-
-	/* (non-Javadoc)
-	 * @see org.springframework.boot.web.servlet.support.SpringBootServletInitializer#configure(org.springframework.boot.builder.SpringApplicationBuilder)
-	 */
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-	
-		return builder.sources(
-                new Class[] { Application.class});
-	}
-
-	
 }
