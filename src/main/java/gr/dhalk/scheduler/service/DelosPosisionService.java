@@ -1,10 +1,8 @@
-/**
- * 
- */
 package gr.dhalk.scheduler.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,6 +10,7 @@ import org.springframework.stereotype.Service;
  * @date 28/04/2018
  */
 
+@Component(value = "delosPosisionService")
 @Service("delosPosisionService")
 public class DelosPosisionService extends AbstractScheduler {
 
@@ -23,7 +22,7 @@ public class DelosPosisionService extends AbstractScheduler {
 	public void doTheJob() {
 		
 		log.info("Executing DelosPosisionService");
-		
+			
 	}
 
 	/* (non-Javadoc)

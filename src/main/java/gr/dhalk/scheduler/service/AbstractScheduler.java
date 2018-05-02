@@ -21,8 +21,8 @@ import gr.dhalk.scheduler.domain.enums.SchedulerStatusEnum;
  */
 public abstract class AbstractScheduler {
 
-	private static final Logger log = LoggerFactory.getLogger(DelosPosisionService.class);
 	
+	private static final Logger log = LoggerFactory.getLogger(DelosPosisionService.class);
 
 	@Autowired
 	SchedulerConfigurationDAOInterface schedulerConfigurationDAO; 
@@ -37,6 +37,7 @@ public abstract class AbstractScheduler {
 	int minutesFromPreviusExecution = 0;
 	
 	public void loadConfiguration() throws Exception {
+		log.info("Reload Configuration for scheduler {}", getServiceBeanName());		
 		schedulerConfiguration = schedulerConfigurationDAO.getSchedulersByServiceName(getServiceBeanName());
 	}
 	
@@ -63,9 +64,10 @@ public abstract class AbstractScheduler {
 				
 				minutesFromPreviusExecution = 0;
 				lastExectionTime = dateFormat.format(new Date());
-				log.info("Start Execution at {}", lastExectionTime);			
+				log.info("Start Execution at {}", lastExectionTime);				
 				doTheJob();			
 				log.info("Finish Execution at {}", dateFormat.format(new Date()));
+				
 				
 			}
 		}
