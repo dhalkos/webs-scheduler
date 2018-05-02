@@ -4,11 +4,14 @@ import java.util.EnumSet;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.DispatcherType;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 import org.ocpsoft.rewrite.servlet.RewriteFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,7 +26,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAutoConfiguration
 @EnableScheduling
 @ComponentScan({"gr.dhalk.scheduler"})
-public class Application {
+public class Application implements ServletContextInitializer {
 
 	public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -44,6 +47,17 @@ public class Application {
         rwFilter.addUrlPatterns("/*");
         return rwFilter;
     }
+
+	/* (non-Javadoc)
+	 * @see org.springframework.boot.web.servlet.ServletContextInitializer#onStartup(javax.servlet.ServletContext)
+	 */
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		
+		servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", "true");
+		servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
+		
+	}
 
     
 }
