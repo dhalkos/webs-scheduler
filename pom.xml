@@ -11,7 +11,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-<!--        <start-class>com.ticketbot.Application</start-class> -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -36,11 +35,12 @@
 			<version>2.2.12</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-api</artifactId>
 			<version>2.2.12</version>
-		</dependency> -->
+			<scope>provided</scope>
+		</dependency>
 		<!-- Library needed for handling JSF inside embeded container  -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -60,16 +60,16 @@
 			<artifactId>rewrite-integration-faces</artifactId>
 			<version>3.4.1.Final</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.ocpsoft.rewrite</groupId>
 			<artifactId>rewrite-config-prettyfaces</artifactId>
 			<version>3.4.1.Final</version>
-		</dependency> -->
-		<dependency>
+		</dependency>
+		<!-- <dependency>
 		    <groupId>org.ocpsoft.logging</groupId>
 		    <artifactId>logging-adapter-slf4j</artifactId>
 		    <version>1.0.5.Final</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- Primefaces library for jsf components -->
 		<dependency>
