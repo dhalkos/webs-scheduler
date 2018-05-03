@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
-        <h:form id="productForm">
+        <h:form id="scheduler_form">
             <p:panel header="Scheduler Configuration Details">
                 <h:panelGrid columns="2">
                 
@@ -27,7 +27,8 @@
 					</h:selectOneMenu> 	
 					
 					                    
-                    <h:commandButton value="Save" action="#{schedulerConfigurationController.save}" />
+                    <h:commandButton value="Save" action="#{schedulerConfigurationController.save}" />                    
+                    <h:commandButton value="Cancel" action="#{schedulerConfigurationSearchController.pageUrl}" />
                     
                 </h:panelGrid>
             </p:panel>

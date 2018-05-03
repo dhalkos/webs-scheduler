@@ -42,4 +42,8 @@ public class SchedulerConfigurationSearchController {
 		return schedulerConfigurationList;
 	}
 	
+	public String pageUrl() {
+		return "/schedulerConfiguration-list.xhtml";
+	}
+	
 }
